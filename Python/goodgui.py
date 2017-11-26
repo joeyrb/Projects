@@ -1,9 +1,13 @@
 #!/usr/bin/python
+from __future__ import print_function
+import img_viewer as ImgViewer
+from PIL import Image
 from graphics import *
 
 # GLOBALS
 SIZE_X = 640
 SIZE_Y = 640
+WIN_CENTER = Point(SIZE_X/2, SIZE_Y/2)
 
 # FUNCTIONS
 def setWindow():
@@ -32,13 +36,18 @@ def setNextButton(win):
 	p1 = Point(SIZE_X, 50)
 	p2 = Point(SIZE_X-100, 0)
 	return setButton(win, p1, p2, 'lime', "Next >")
-	
+
+def getImages(path):
+	return ImgViewer.loadImgs(path)
+
+def displayImages(imgList):
+	pass
+
 # MAIN
 def main():
 	win = setWindow()
 	prev_btn = setPrevButton(win)
 	next_btn = setNextButton(win)
-	img = Image(Point(SIZE_X/2, SIZE_Y/2), 'mantaray.jpg')
 	win.getMouse()
 	win.close()
 
