@@ -48,11 +48,10 @@ def main():
 	root.bind('<Motion>', motion)
 
 	# Setup Frame
-	frame = Frame(root, width=640, height=480)
+	frame = Frame(root, width=100, height=100)
 
 	# Setup Buttons
 	widget = Button(root, text='Mouse Clicks')
-	widget.pack()
 	widget.bind('<Button-1>', hello)
 	widget.bind('<Double-1>', quit)
 
@@ -63,8 +62,9 @@ def main():
 	prev_btn.bind('<Button-1>', getPrev)
 	
 	# Pack everything
-	next_btn.pack()
-	prev_btn.pack()
+	widget.pack()
+	next_btn.pack(side='right')
+	prev_btn.pack(side='left')
 	frame.pack()
 
 	# Display window
