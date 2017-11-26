@@ -34,13 +34,10 @@ def getNext(event):
 def getPrev(event):
 	print("Left key pressed = PREVIOUS")
 
-def key(event):
-	print "pressed", repr(event.char)
-
-def leftKey(event):
+def leftKeyPress(event):
 	getPrev(event)
 
-def rightKey(event):
+def rightKeyPress(event):
 	getNext(event)
 
 def main():
@@ -59,10 +56,9 @@ def main():
 	prev_btn = Button(root, text = '<PREV', fg='blue')
 	prev_btn.bind('<Button-1>', getPrev)
 	prev_btn.pack()
-
-	frame.bind('<Key>', key)
-	root.bind('<Left>', leftKey)
-	root.bind('<Right>', rightKey)
+	
+	root.bind('<Left>', leftKeyPress)
+	root.bind('<Right>', rightKeyPress)
 	root.bind('<Motion>', motion)
 	frame.pack()
 	frame.mainloop()
