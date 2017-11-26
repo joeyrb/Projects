@@ -41,9 +41,16 @@ def rightKeyPress(event):
 	getNext(event)
 
 def main():
+	# Setup root window
 	root = Tk()
+	root.bind('<Left>', leftKeyPress)
+	root.bind('<Right>', rightKeyPress)
+	root.bind('<Motion>', motion)
+
+	# Setup Frame
 	frame = Frame(root, width=640, height=480)
 
+	# Setup Buttons
 	widget = Button(root, text='Mouse Clicks')
 	widget.pack()
 	widget.bind('<Button-1>', hello)
@@ -51,16 +58,16 @@ def main():
 
 	next_btn = Button(root, text='NEXT>', fg='green')
 	next_btn.bind('<Button-1>', getNext)
-	next_btn.pack()
 
 	prev_btn = Button(root, text = '<PREV', fg='blue')
 	prev_btn.bind('<Button-1>', getPrev)
-	prev_btn.pack()
 	
-	root.bind('<Left>', leftKeyPress)
-	root.bind('<Right>', rightKeyPress)
-	root.bind('<Motion>', motion)
+	# Pack everything
+	next_btn.pack()
+	prev_btn.pack()
 	frame.pack()
+
+	# Display window
 	frame.mainloop()
 
 
